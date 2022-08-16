@@ -1,0 +1,111 @@
+﻿<Window x:Class="Time_Management_App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:local="clr-namespace:Time_Management_App"
+        mc:Ignorable="d"
+        Height="720" Width="1600" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        AllowsTransparency="True" Background="Transparent">
+    
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+    </Window.Resources>
+
+    <Border Background="#eff2f7" CornerRadius="30" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+        <Grid Margin="-2,0,2,0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!--Left Menu-->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="1" Background="#623ed0" CornerRadius="0 50 0 30">
+                    <DockPanel>
+
+                        <!--Menu Logo-->
+                        <!--<Border Width="80" Height="80" Padding="3" Background="White" CornerRadius="100"
+                            DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="60 30 0 0">
+                            <Ellipse>
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="/Images/person-icon.png"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                        </Border>-->
+
+                        <!--Menu Titles-->
+                        <TextBlock Text="Welcome" Foreground="White" FontSize="22" FontWeight="SemiBold"
+                               DockPanel.Dock="Top" TextAlignment="Center" Margin="5 25 0 10"/>
+                        <TextBlock Text="Time Management App" Foreground="#d0bfff" FontSize="14" FontWeight="SemiBold"
+                               DockPanel.Dock="Top" TextAlignment="Center" />
+
+                        <!--Menu Separator-->
+                        <Separator Margin="25" DockPanel.Dock="Top" Height="0.8" Background="#7e5fdc"/>
+
+                        <!--Menu Buttons-->
+                        <StackPanel DockPanel.Dock="Top">
+                            <Button x:Name="btnDashboard" Style="{StaticResource menuButton}" Click="btnDashboard_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Dashboard"/>
+                                </StackPanel>
+                            </Button>
+
+                            <Button x:Name="btnCapture" Style="{StaticResource menuButton}" Click="btnCapture_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="AccountEdit" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Capture"/>
+                                </StackPanel>
+                            </Button>
+
+                            <Button x:Name="btnStudy" Style="{StaticResource menuButton}" Click="btnStudy_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="Book" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Studied"/>
+                                </StackPanel>
+                            </Button>
+
+                        </StackPanel>
+
+                        <Button x:Name="btnExit" Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20" Click="btnExit_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="Logout" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Exit"/>
+                            </StackPanel>
+                        </Button>
+                    </DockPanel>
+                </Border>
+            </Grid>
+
+            <!--Search Textbox-->
+            <Grid Width="300" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="5" VerticalAlignment="Top">
+                <TextBlock x:Name="txtbSearch" Margin="20 0" VerticalAlignment="Center" Foreground="#b0b9c6" IsHitTestVisible="False"
+                           Panel.ZIndex="1" Text="Search Code Here ..."
+                           Visibility="Hidden"/>
+
+                <TextBox x:Name="txtSearch" Style="{StaticResource txtboxSearch}"
+                         Visibility="Hidden"/>
+                <Icon:PackIconMaterial x:Name="iSearch" Kind="Magnify" Width="15" Height="15" VerticalAlignment="Center"
+                                       Margin="0 0 15 0" Foreground="#b0b9c6" HorizontalAlignment="Right"
+                                       Visibility="Hidden"/>
+            </Grid>
+
+            <Grid Grid.Column="1" Grid.Row="5">
+                <!--Top Buttons-->
+                <Button x:Name="btnSettings" Style="{StaticResource topButton}" Margin="0 15 20 0" Background="#dcdcdc" HorizontalAlignment="Right" VerticalAlignment="Top" Click="btnSettings_Click">
+                    <Icon:PackIconMaterial Kind="Cog"/>
+                </Button>
+            </Grid>
+
+            <Frame x:Name="Shell" Grid.Column="1" NavigationUIVisibility="Hidden"/>
+        </Grid>
+    </Border>
+
+</Window>
