@@ -29,25 +29,15 @@
             <Separator Height="1" Grid.Row="3" Background="#dae2ea" Margin="0 -1 0 10"/>
 
             <!--Datagrid-->
-            <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
-                      RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="modulesDataGrid" ItemsSource="{Binding Modules}">
-                <DataGrid.Columns>
-                    <DataGridCheckBoxColumn CanUserResize="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle1}">
-                        <DataGridCheckBoxColumn.HeaderTemplate>
-                            <DataTemplate>
-                                <CheckBox Style="{StaticResource CheckBoxStyle1}"/>
-                            </DataTemplate>
-                        </DataGridCheckBoxColumn.HeaderTemplate>
-                    </DataGridCheckBoxColumn>
-
-                    <DataGridTextColumn Header="Code" IsReadOnly="True"  Width="*" Binding="{Binding Code}"/>
-                    <DataGridTextColumn Header="Name" IsReadOnly="True"  Width="*" Binding="{Binding Name}"/>
-                    <DataGridTextColumn Header="Credits" IsReadOnly="True"  Width="*" Binding="{Binding Credits}"/>
-                    <DataGridTextColumn Header="Hours per Week" IsReadOnly="True"  Width="*" Binding="{Binding HoursPerWeek}"/>
-                    <DataGridTextColumn Header="Study Hours per Week" IsReadOnly="True"  Width="*" Binding="{Binding HoursPerWeek}"/>
-                    <DataGridTextColumn Header="Remaining for this week" IsReadOnly="True"  Width="*" Binding="{Binding HoursPerWeek}"/>
-                </DataGrid.Columns>
-            </DataGrid>
+            <DataGrid HorizontalAlignment="Left" 
+                      Name="modulesDataGrid" 
+                      VerticalAlignment="Top"
+                      Grid.Row="5"
+                      Width="1300"
+                      ColumnWidth="215.3"
+                      MinRowHeight="25"
+                      FontSize="16"
+                      IsReadOnly="True"/>
         </Grid>
     </Grid>
 </Page>

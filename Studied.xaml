@@ -40,7 +40,7 @@
                          Margin="0 15 0 20" Style="{StaticResource txtboxInput}"/>
 
                 <Button x:Name="btnCapture" Style="{StaticResource menuButton}" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Left" DockPanel.Dock="Bottom"
-                        Margin="15 0 15 20" Command="{Binding CaptureCommand}" IsEnabled="False" >
+                        Margin="15 0 15 20" Click="btnCapture_Click" >
                     <StackPanel Orientation="Horizontal">
                         <Icon:PackIconMaterial Kind="Logout" Style="{StaticResource menuButtonIcon}"/>
                         <TextBlock Text="Capture"/>

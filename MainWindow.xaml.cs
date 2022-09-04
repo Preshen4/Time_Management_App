@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Time_Management_App
@@ -9,6 +10,7 @@ namespace Time_Management_App
     public partial class MainWindow : Window
     {
         private bool IsMax = false;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -50,7 +52,9 @@ namespace Time_Management_App
         private void btnDashboard_Click(object sender, RoutedEventArgs e)
         {
             Shell.Content = new Dashboard();
+            GC.Collect();
             MakeSearchVisible(Visibility.Visible);
+
         }
 
         private void btnCapture_Click(object sender, RoutedEventArgs e)
@@ -62,7 +66,9 @@ namespace Time_Management_App
         private void btnStudy_Click(object sender, RoutedEventArgs e)
         {
             Shell.Content = new Studied();
+            GC.Collect();
             MakeSearchVisible(Visibility.Hidden);
+
         }
         private void btnSettings_Click(object sender, RoutedEventArgs e)
         {

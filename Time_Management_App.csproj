@@ -11,4 +11,10 @@
     <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="4.11.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="ModulesCal">
+      <HintPath>..\Libraries\ModulesCal\bin\Debug\net6.0\ModulesCal.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
