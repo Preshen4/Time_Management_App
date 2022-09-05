@@ -38,6 +38,19 @@
                       MinRowHeight="25"
                       FontSize="16"
                       IsReadOnly="True"/>
+            
+            <!--Search Textbox--><!--
+            <Grid Width="300" HorizontalAlignment="Left" Grid.Column="1" VerticalAlignment="Top">
+                <TextBlock x:Name="txtbSearch" Margin="20 0" VerticalAlignment="Center" Foreground="#b0b9c6" IsHitTestVisible="False"
+                           Panel.ZIndex="1" Text="Search Code Here ..."
+                           Visibility="Hidden"/>
+
+                <TextBox x:Name="txtSearch" Style="{StaticResource txtboxSearch}"
+                         Visibility="Hidden"/>
+                <Icon:PackIconMaterial x:Name="iSearch" Kind="Magnify" Width="15" Height="15" VerticalAlignment="Center"
+                                       Margin="0 0 15 0" Foreground="#b0b9c6" HorizontalAlignment="Right"
+                                       Visibility="Hidden"/>
+            </Grid>-->
         </Grid>
     </Grid>
 </Page>

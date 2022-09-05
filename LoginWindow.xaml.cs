@@ -17,11 +17,14 @@ namespace Time_Management_App
 
         private void btnEnter_Click(object sender, RoutedEventArgs e)
         {
+            // Instants of the Student class
             Student student = Student.Instant;
             try
             {
+                // Gets the users data
                 student.NumOfWeeks = int.Parse(txtNumOfWeeks.Text);
                 student.StartDate = DateTime.Parse(dateStart.Text);
+                // Closes this form and shows the Main form of the application
                 this.Hide();
                 MainWindow main = new MainWindow();
                 main.ShowDialog();
