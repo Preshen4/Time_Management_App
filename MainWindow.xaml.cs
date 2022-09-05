@@ -9,31 +9,9 @@ namespace Time_Management_App
     /// </summary>
     public partial class MainWindow : Window
     {
-        private bool IsMax = false;
-
         public MainWindow()
         {
             InitializeComponent();
-        }
-        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ClickCount == 2)
-            {
-                if (IsMax)
-                {
-                    this.WindowState = WindowState.Normal;
-                    this.Width = 1600;
-                    this.Height = 800;
-
-                    IsMax = false;
-                }
-                else
-                {
-                    this.WindowState = WindowState.Maximized;
-
-                    IsMax = true;
-                }
-            }
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)

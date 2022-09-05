@@ -1,4 +1,7 @@
-﻿using System.Text.RegularExpressions;
+﻿using ModulesCal;
+using System;
+using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -15,6 +18,7 @@ namespace Time_Management_App
         public Studied()
         {
             InitializeComponent();
+
             foreach (var item in dashboardClass.getModules())
             {
                 cmbModules.Items.Add(item.Code);
@@ -22,6 +26,30 @@ namespace Time_Management_App
         }
         private void btnCapture_Click(object sender, RoutedEventArgs e)
         {
+            SelfStudy selfStudy = new SelfStudy();
+            string moduleCode = "";
+            try
+            {
+                moduleCode = cmbModules.SelectedItem.ToString();
+                DateTime date = DateTime.Parse(dateStudied.Text);
+                int hours = int.Parse(txtHours.Text);
+                // LINQ used to update the remaining hours in the list
+                foreach (var item in dashboardClass.getModules().Where(x => x.Code == moduleCode))
+                {
+                    item.RemainingHours = item.SelfStudyHours - hours;
+                }
+                MessageBox.Show($"Your remaining hours for {moduleCode} is now updated! You can view it on your Dashboard",
+                    "Completed", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please enter your study details!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
+                txtHours.Clear();
+            }
 
         }
 
