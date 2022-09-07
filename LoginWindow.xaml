@@ -10,7 +10,7 @@
     <Grid>
         <StackPanel>
             <!--Page Title-->
-            <TextBlock Text="Please Enter for your Degree:" Grid.Row="1"
+            <TextBlock Text="Please Enter your Details:" Grid.Row="1"
                            FontSize="32" FontWeight="SemiBold" Margin="0 35 0 0"
                            HorizontalAlignment="Left" Foreground="#121518"/>
 
