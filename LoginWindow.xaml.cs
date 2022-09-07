@@ -47,6 +47,16 @@ namespace Time_Management_App
         {
             Close();
         }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSignup_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
 }
