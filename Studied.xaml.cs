@@ -51,17 +51,12 @@ namespace Time_Management_App
 
                 MessageBox.Show($"Your remaining hours for {moduleCode} is now updated! You can view it on your Dashboard",
                     "Completed", MessageBoxButton.OK, MessageBoxImage.Information);
-
+                txtHours.Clear();
             }
 
             catch (Exception)
             {
                 MessageBox.Show("Please enter your study details!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-
-            finally
-            {
-                txtHours.Clear();
             }
 
         }
