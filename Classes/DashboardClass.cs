@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using ModulesCal;
+using System.Collections.Generic;
 
 namespace Time_Management_App.Classes
 {
@@ -15,18 +16,19 @@ namespace Time_Management_App.Classes
         }
 
         // List of the object Modules 
-        private List<ModulesCal.Modules> Modules = new List<ModulesCal.Modules>();
+        private List<Modules> Modules = new List<Modules>();
 
         // Returns all of the modules as a List
-        public List<ModulesCal.Modules> getModules()
+        public List<Modules> getModules()
         {
             return Modules;
         }
 
         // Adds another module into the list
-        public void setModules(ModulesCal.Modules obj)
+        public void setModules(Modules obj)
         {
             Modules.Add(obj);
         }
+
     }
 }

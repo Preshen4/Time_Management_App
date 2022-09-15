@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using Time_Management_App.Classes;
 
 namespace Time_Management_App
@@ -9,9 +8,9 @@ namespace Time_Management_App
     /// </summary>
     public partial class MainWindow : Window
     {
-        public Student student = new Student();
+        private Student student = new Student();
 
-        public DashboardClass dashboardClass = new DashboardClass();
+        private DashboardClass dashboardClass = new DashboardClass();
         public MainWindow(Student student)
         {
             InitializeComponent();
@@ -28,7 +27,6 @@ namespace Time_Management_App
         private void btnDashboard_Click(object sender, RoutedEventArgs e)
         {
             Shell.Content = new Dashboard(dashboardClass);
-            GC.Collect();
         }
 
         private void btnCapture_Click(object sender, RoutedEventArgs e)
@@ -39,7 +37,6 @@ namespace Time_Management_App
         private void btnStudy_Click(object sender, RoutedEventArgs e)
         {
             Shell.Content = new Studied(dashboardClass);
-            GC.Collect();
         }
 
     }

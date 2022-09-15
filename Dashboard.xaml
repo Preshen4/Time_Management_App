@@ -23,8 +23,19 @@
             </Grid.RowDefinitions>
 
             <!--Page Title-->
-            <TextBlock Text="Modules" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 30 0 0"
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Modules" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 30 0 0"
                            HorizontalAlignment="Left" Foreground="#121518"/>
+                
+                <Button x:Name="btnDelete" Style="{StaticResource menuButton}" Width="110" 
+                        VerticalAlignment="Bottom" HorizontalAlignment="Left" DockPanel.Dock="Bottom"
+                        Margin="180 35 0 20"  Click="btnDelete_Click" ToolTip="Select row before deleting">
+                    <StackPanel Orientation="Horizontal">
+                        <Icon:PackIconMaterial Kind="Delete" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Delete"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
 
             <Separator Height="1" Grid.Row="3" Background="#dae2ea" Margin="0 -1 0 10"/>
 

@@ -51,21 +51,21 @@
 
                         <!--Menu Buttons-->
                         <StackPanel DockPanel.Dock="Top">
-                            <Button x:Name="btnDashboard" Style="{StaticResource menuButton}" Click="btnDashboard_Click">
+                            <Button x:Name="btnDashboard" Style="{StaticResource menuButton}" Click="btnDashboard_Click" ToolTip="View all your modules">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Dashboard"/>
                                 </StackPanel>
                             </Button>
 
-                            <Button x:Name="btnCapture" Style="{StaticResource menuButton}" Click="btnCapture_Click">
+                            <Button x:Name="btnCapture" Style="{StaticResource menuButton}" Click="btnCapture_Click" ToolTip="Add your modules">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="AccountEdit" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Capture"/>
                                 </StackPanel>
                             </Button>
 
-                            <Button x:Name="btnStudy" Style="{StaticResource menuButton}" Click="btnStudy_Click">
+                            <Button x:Name="btnStudy" Style="{StaticResource menuButton}" Click="btnStudy_Click" ToolTip="Add your hours studied">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="Book" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Studied"/>
@@ -74,7 +74,7 @@
 
                         </StackPanel>
 
-                        <Button x:Name="btnExit" Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20" Click="btnExit_Click">
+                        <Button x:Name="btnExit" Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20" Click="btnExit_Click" ToolTip="Exit the app">
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="Logout" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Exit"/>

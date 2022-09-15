@@ -20,9 +20,9 @@ namespace Time_Management_App
             InitializeComponent();
 
             // Adds all the module codes into the combo box
-            foreach (var item in dashboardClass.getModules())
+            foreach (var item in dashboardClass.getModules().Select(x => x.Code))
             {
-                cmbModules.Items.Add(item.Code);
+                cmbModules.Items.Add(item);
             }
 
             this.dashboardClass = dashboardClass;
