@@ -54,9 +54,7 @@ namespace Time_Management_App
                     // Adds the capture class to the modules list
                     dashboardClass.setModules(modules);
                 }
-                else
-                    clearTxtBox();
-
+                clearTxtBox();
             }
 
             catch (Exception)
@@ -64,10 +62,6 @@ namespace Time_Management_App
                 MessageBox.Show("Please enter your module details!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-            finally
-            {
-                clearTxtBox();
-            }
         }
         private void NumOnly(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
@@ -88,6 +82,7 @@ namespace Time_Management_App
 
         private void btnGetModuleCodes_Click(object sender, RoutedEventArgs e)
         {
+            // Link to the varsity college website with all available modules
             Process.Start(new ProcessStartInfo("https://www.varsitycollege.co.za/programmes/full-time") { UseShellExecute = true });
         }
 
