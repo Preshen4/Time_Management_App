@@ -8,12 +8,16 @@ namespace Time_Management_App
     /// </summary>
     public partial class Dashboard : Page
     {
-        private DashboardClass dashboardClass = DashboardClass.Instant;
+        public Dashboard(DashboardClass dashboardClass)
+        {
+            InitializeComponent();
+
+            // sets the modules data into the datagrid for the user to view
+            modulesDataGrid.ItemsSource = dashboardClass.getModules();
+        }
         public Dashboard()
         {
             InitializeComponent();
-            // sets the modules data into the datagrid for the user to view
-            modulesDataGrid.ItemsSource = dashboardClass.getModules();
         }
 
     }

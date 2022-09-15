@@ -14,42 +14,51 @@ namespace Time_Management_App
     /// </summary>
     public partial class Studied : Page
     {
-        // Instants of Dashboard Class
-        private DashboardClass dashboardClass = DashboardClass.Instant;
-        public Studied()
+        private DashboardClass dashboardClass;
+        public Studied(DashboardClass dashboardClass)
         {
             InitializeComponent();
+
             // Adds all the module codes into the combo box
             foreach (var item in dashboardClass.getModules())
             {
                 cmbModules.Items.Add(item.Code);
             }
+
+            this.dashboardClass = dashboardClass;
         }
         private void btnCapture_Click(object sender, RoutedEventArgs e)
         {
             // Constructor of the SelfStudy Class in the Class Library
             SelfStudy selfStudy = new SelfStudy();
             string moduleCode = "";
+
             try
             {
+
                 // Gets the selected module code 
                 moduleCode = cmbModules.SelectedItem.ToString();
+
                 // Gets users data
                 DateTime date = DateTime.Parse(dateStudied.Text);
                 int hours = int.Parse(txtHours.Text);
+
                 // LINQ used to update the remaining hours in the list
                 foreach (var item in dashboardClass.getModules().Where(x => x.Code == moduleCode))
                 {
                     item.RemainingHours = item.SelfStudyHours - hours;
                 }
+
                 MessageBox.Show($"Your remaining hours for {moduleCode} is now updated! You can view it on your Dashboard",
                     "Completed", MessageBoxButton.OK, MessageBoxImage.Information);
 
             }
+
             catch (Exception)
             {
                 MessageBox.Show("Please enter your study details!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
             finally
             {
                 txtHours.Clear();

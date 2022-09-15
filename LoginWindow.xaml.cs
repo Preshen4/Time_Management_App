@@ -17,8 +17,7 @@ namespace Time_Management_App
 
         private void btnEnter_Click(object sender, RoutedEventArgs e)
         {
-            // Instants of the Student class
-            Student student = Student.Instant;
+            Student student = new Student();
             try
             {
                 // Gets the users data
@@ -26,10 +25,11 @@ namespace Time_Management_App
                 student.StartDate = DateTime.Parse(dateStart.Text);
                 // Closes this form and shows the Main form of the application
                 this.Hide();
-                MainWindow main = new MainWindow();
+                MainWindow main = new MainWindow(student);
                 main.ShowDialog();
                 this.Close();
             }
+
             catch (Exception)
             {
                 MessageBox.Show("Please enter your details!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);

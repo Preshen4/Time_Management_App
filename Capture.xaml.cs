@@ -12,16 +12,25 @@ namespace Time_Management_App
     /// </summary>
     public partial class Capture : Page
     {
+        private DashboardClass dashboardClass;
+
+        private Student student;
+
         public Capture()
         {
             InitializeComponent();
         }
 
+        public Capture(DashboardClass dashboardClass, Student student)
+        {
+            InitializeComponent();
+            this.dashboardClass = dashboardClass;
+            this.student = student;
+        }
+
         private void btnCapture_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             // Constructors
-            DashboardClass dashboardClass = DashboardClass.Instant;
-            Student student = Student.Instant;
             SelfStudy selfStudy = new SelfStudy();
             Modules modules = new Modules();
 
@@ -41,13 +50,15 @@ namespace Time_Management_App
                 // Adds the capture class to the modules list
                 dashboardClass.setModules(modules);
             }
+
             catch (Exception)
             {
                 MessageBox.Show("Please enter your module details!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
             finally
             {
-                // Clears the textboxes so that new modules can be added
+                // Clears the text boxes so that new modules can be added and sets the cursors focus to the code text box
                 txtCode.Clear();
                 txtName.Clear();
                 txtHours.Clear();
