@@ -37,6 +37,7 @@ namespace Time_Management_App
                 modules.HoursPerWeek = hoursPerWeek;
                 modules.Credits = credits;
                 modules.SelfStudyHours = selfStudy.CalSelfStudyHours(credits, hoursPerWeek, student.NumOfWeeks);
+                modules.RemainingHours = modules.SelfStudyHours;
                 // Adds the capture class to the modules list
                 dashboardClass.setModules(modules);
             }
@@ -51,6 +52,7 @@ namespace Time_Management_App
                 txtName.Clear();
                 txtHours.Clear();
                 txtCredits.Clear();
+                txtCode.Focus();
             }
         }
         private void NumOnly(object sender, System.Windows.Input.TextCompositionEventArgs e)
