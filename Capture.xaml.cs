@@ -57,7 +57,6 @@ namespace Time_Management_App
                 else
                     clearTxtBox();
 
-
             }
 
             catch (Exception)

@@ -14,7 +14,6 @@ namespace Time_Management_App
         public MainWindow(Student student)
         {
             InitializeComponent();
-            Shell.Content = new Dashboard();
             this.student = student;
         }
 
