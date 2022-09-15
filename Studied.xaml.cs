@@ -14,11 +14,12 @@ namespace Time_Management_App
     /// </summary>
     public partial class Studied : Page
     {
+        // Instants of Dashboard Class
         private DashboardClass dashboardClass = DashboardClass.Instant;
         public Studied()
         {
             InitializeComponent();
-
+            // Adds all the module codes into the combo box
             foreach (var item in dashboardClass.getModules())
             {
                 cmbModules.Items.Add(item.Code);
@@ -26,11 +27,14 @@ namespace Time_Management_App
         }
         private void btnCapture_Click(object sender, RoutedEventArgs e)
         {
+            // Constructor of the SelfStudy Class in the Class Library
             SelfStudy selfStudy = new SelfStudy();
             string moduleCode = "";
             try
             {
+                // Gets the selected module code 
                 moduleCode = cmbModules.SelectedItem.ToString();
+                // Gets users data
                 DateTime date = DateTime.Parse(dateStudied.Text);
                 int hours = int.Parse(txtHours.Text);
                 // LINQ used to update the remaining hours in the list

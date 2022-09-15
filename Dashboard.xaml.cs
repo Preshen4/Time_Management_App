@@ -12,6 +12,7 @@ namespace Time_Management_App
         public Dashboard()
         {
             InitializeComponent();
+            // sets the modules data into the datagrid for the user to view
             modulesDataGrid.ItemsSource = dashboardClass.getModules();
         }
 
