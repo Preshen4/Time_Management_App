@@ -12,6 +12,7 @@ namespace Time_Management_App
         public MainWindow()
         {
             InitializeComponent();
+            Shell.Content = new Dashboard();
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Time_Management_App", "Time_Management_App.csproj", "{113BAE4D-32D2-4A41-AA5F-B0B055E25953}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Time_Management_App", "Time_Management_App.csproj", "{113BAE4D-32D2-4A41-AA5F-B0B055E25953}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModulesCal", "..\..\..\Desktop\Libraries\ModulesCal\ModulesCal.csproj", "{F72E7402-945E-4D39-B3F9-A3840BB8EFD8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{113BAE4D-32D2-4A41-AA5F-B0B055E25953}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{113BAE4D-32D2-4A41-AA5F-B0B055E25953}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{113BAE4D-32D2-4A41-AA5F-B0B055E25953}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F72E7402-945E-4D39-B3F9-A3840BB8EFD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F72E7402-945E-4D39-B3F9-A3840BB8EFD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F72E7402-945E-4D39-B3F9-A3840BB8EFD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F72E7402-945E-4D39-B3F9-A3840BB8EFD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
