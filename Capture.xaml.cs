@@ -18,11 +18,6 @@ namespace Time_Management_App
 
         private Student student;
 
-        public Capture()
-        {
-            InitializeComponent();
-        }
-
         public Capture(DashboardClass dashboardClass, Student student)
         {
             InitializeComponent();

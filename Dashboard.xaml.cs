@@ -18,10 +18,7 @@ namespace Time_Management_App
             modulesDataGrid.ItemsSource = dashboardClass.getModules();
             this.dashboardClass = dashboardClass;
         }
-        public Dashboard()
-        {
-            InitializeComponent();
-        }
+
 
         private void btnDelete_Click(object sender, System.Windows.RoutedEventArgs e)
         {
