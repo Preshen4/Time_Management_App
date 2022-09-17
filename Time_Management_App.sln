@@ -5,8 +5,6 @@ VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Time_Management_App", "Time_Management_App.csproj", "{113BAE4D-32D2-4A41-AA5F-B0B055E25953}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModulesCal", "..\Libraries\ModulesCal\ModulesCal.csproj", "{D3060F8B-3C8F-4418-B68F-BC42A1DB0DDE}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{113BAE4D-32D2-4A41-AA5F-B0B055E25953}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{113BAE4D-32D2-4A41-AA5F-B0B055E25953}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{113BAE4D-32D2-4A41-AA5F-B0B055E25953}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D3060F8B-3C8F-4418-B68F-BC42A1DB0DDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D3060F8B-3C8F-4418-B68F-BC42A1DB0DDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D3060F8B-3C8F-4418-B68F-BC42A1DB0DDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D3060F8B-3C8F-4418-B68F-BC42A1DB0DDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
