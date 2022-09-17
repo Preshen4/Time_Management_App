@@ -6,7 +6,7 @@
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:local="clr-namespace:Time_Management_App"
         mc:Ignorable="d"
-        Height="720" Width="1600" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        Height="720" Width="1400" WindowStartupLocation="CenterScreen" WindowStyle="None"
         AllowsTransparency="True" Background="Transparent">
     
     <Window.Resources>

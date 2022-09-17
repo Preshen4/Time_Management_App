@@ -26,7 +26,7 @@
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Modules" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 30 0 0"
                            HorizontalAlignment="Left" Foreground="#121518"/>
-                
+
                 <Button x:Name="btnDelete" Style="{StaticResource menuButton}" Width="110" 
                         VerticalAlignment="Bottom" HorizontalAlignment="Left" DockPanel.Dock="Bottom"
                         Margin="180 35 0 20"  Click="btnDelete_Click" ToolTip="Select row before deleting">
@@ -40,17 +40,18 @@
             <Separator Height="1" Grid.Row="3" Background="#dae2ea" Margin="0 -1 0 10"/>
 
             <!--Datagrid-->
-            <DataGrid HorizontalAlignment="Left" 
+            <DataGrid HorizontalAlignment="Center" 
                       Name="modulesDataGrid" 
                       VerticalAlignment="Top"
                       Grid.Row="5"
-                      Width="1300"
-                      ColumnWidth="215.3"
+                      Width="1100"
+                      ColumnWidth="*"
                       MinRowHeight="25"
                       FontSize="16"
                       IsReadOnly="True"/>
-            
-            <!--Search Textbox--><!--
+
+            <!--Search Textbox-->
+            <!--
             <Grid Width="300" HorizontalAlignment="Left" Grid.Column="1" VerticalAlignment="Top">
                 <TextBlock x:Name="txtbSearch" Margin="20 0" VerticalAlignment="Center" Foreground="#b0b9c6" IsHitTestVisible="False"
                            Panel.ZIndex="1" Text="Search Code Here ..."
