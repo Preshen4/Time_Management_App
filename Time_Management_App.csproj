@@ -12,7 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Libraries\ModulesCal\ModulesCal.csproj" />
+    <Reference Include="ModulesCal">
+      <HintPath>..\Libraries\ModulesCal\bin\Debug\net6.0\ModulesCal.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
