@@ -1,7 +1,5 @@
-﻿using ModulesCal;
-using System;
+﻿using System;
 using System.Diagnostics;
-using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,28 +25,12 @@ namespace Time_Management_App
 
         private void btnCapture_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            // Constructors
-            SelfStudy selfStudy = new SelfStudy();
-            Modules modules = new Modules();
 
             try
             {
                 // Gets the data from the user
-                string code = txtCode.Text;
-                string name = txtName.Text;
-                int hoursPerWeek = int.Parse(txtHours.Text);
-                int credits = int.Parse(txtCredits.Text);
-                if (!CheckIfCodeExsits(code))
-                {
-                    modules.Code = code;
-                    modules.Name = name;
-                    modules.HoursPerWeek = hoursPerWeek;
-                    modules.Credits = credits;
-                    modules.SelfStudyHours = selfStudy.CalSelfStudyHours(credits, hoursPerWeek, student.NumOfWeeks);
-                    modules.RemainingHours = modules.SelfStudyHours;
-                    // Adds the capture class to the modules list
-                    dashboardClass.setModules(modules);
-                }
+                CaptureClass captureClass = new CaptureClass(txtCode.Text, txtName.Text, int.Parse(txtHours.Text), int.Parse(txtCredits.Text));
+                captureClass.CaptureData(student.NumOfWeeks, dashboardClass);
                 clearTxtBox();
             }
 
@@ -63,16 +45,6 @@ namespace Time_Management_App
             // Only allows the user to enter numbers
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
-        }
-
-        private bool CheckIfCodeExsits(string code)
-        {
-            foreach (var item in dashboardClass.getModules().Where(x => x.Code == code))
-            {
-                MessageBox.Show("You already entered the details for this module!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return true;
-            }
-            return false;
         }
 
         private void btnGetModuleCodes_Click(object sender, RoutedEventArgs e)
