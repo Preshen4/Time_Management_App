@@ -48,6 +48,7 @@
                       ColumnWidth="*"
                       MinRowHeight="25"
                       FontSize="16"
+                      AlternatingRowBackground="#d0c0ff"
                       IsReadOnly="True"/>
 
             <!--Search Textbox-->
