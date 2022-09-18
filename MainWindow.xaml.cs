@@ -35,7 +35,7 @@ namespace Time_Management_App
 
         private void btnStudy_Click(object sender, RoutedEventArgs e)
         {
-            Shell.Content = new Studied(dashboardClass);
+            Shell.Content = new Studied(dashboardClass, student);
         }
 
     }

@@ -29,7 +29,7 @@ namespace Time_Management_App
             try
             {
                 // Gets the data from the user
-                CaptureClass captureClass = new CaptureClass(txtCode.Text, txtName.Text, int.Parse(txtHours.Text), int.Parse(txtCredits.Text));
+                CaptureClass captureClass = new CaptureClass(txtCode.Text, txtName.Text, int.Parse(txtHours.Text), int.Parse(txtCredits.Text), 1);
                 captureClass.CaptureData(student.NumOfWeeks, dashboardClass);
                 clearTxtBox();
             }

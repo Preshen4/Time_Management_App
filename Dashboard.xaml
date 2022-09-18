@@ -35,6 +35,25 @@
                         <TextBlock Text="Delete"/>
                     </StackPanel>
                 </Button>
+
+                <Button x:Name="btnMostHours" Style="{StaticResource menuButton}" Width="110" 
+                        VerticalAlignment="Bottom" HorizontalAlignment="Left" DockPanel.Dock="Bottom"
+                        Margin="18 35 0 20"  Click="btnMostHours_Click" ToolTip="Select row before deleting">
+                    <StackPanel Orientation="Horizontal">
+                        <Icon:PackIconMaterial Kind="ClockTimeTwelve" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Hours"/>
+                    </StackPanel>
+                </Button>
+
+                <Button x:Name="btnMostCredits" Style="{StaticResource menuButton}" Width="110" 
+                        VerticalAlignment="Bottom" HorizontalAlignment="Left" DockPanel.Dock="Bottom"
+                        Margin="18 35 0 20"  Click="btnMostCredits_Click" ToolTip="Select row before deleting">
+                    <StackPanel Orientation="Horizontal">
+                        <Icon:PackIconMaterial Kind="Abacus" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Credits"/>
+                    </StackPanel>
+                </Button>
+
             </StackPanel>
 
             <Separator Height="1" Grid.Row="3" Background="#dae2ea" Margin="0 -1 0 10"/>

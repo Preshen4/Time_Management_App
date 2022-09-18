@@ -10,6 +10,7 @@ namespace Time_Management_App.Classes
         public string Name { get; set; }
         public int HoursPerWeek { get; set; }
         public int Credits { get; set; }
+        public int Week { get; set; }
 
 
         public CaptureClass()
@@ -17,12 +18,13 @@ namespace Time_Management_App.Classes
 
         }
 
-        public CaptureClass(string code, string name, int hoursPerWeek, int credits)
+        public CaptureClass(string code, string name, int hoursPerWeek, int credits, int week)
         {
             Code = code;
             Name = name;
             HoursPerWeek = hoursPerWeek;
             Credits = credits;
+            Week = week;
         }
 
         ~CaptureClass()
@@ -44,6 +46,7 @@ namespace Time_Management_App.Classes
                 modules.Credits = Credits;
                 modules.SelfStudyHours = selfStudy.CalSelfStudyHours(Credits, HoursPerWeek, NumOfWeeks);
                 modules.RemainingHours = modules.SelfStudyHours;
+                modules.Week = Week;
                 // Adds the capture class to the modules list
                 dashboardClass.setModules(modules);
             }

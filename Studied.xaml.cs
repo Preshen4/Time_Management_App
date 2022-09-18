@@ -14,7 +14,8 @@ namespace Time_Management_App
     public partial class Studied : Page
     {
         private DashboardClass dashboardClass;
-        public Studied(DashboardClass dashboardClass)
+        private Student student;
+        public Studied(DashboardClass dashboardClass, Student student)
         {
             InitializeComponent();
 
@@ -25,14 +26,14 @@ namespace Time_Management_App
             }
 
             this.dashboardClass = dashboardClass;
+            this.student = student;
         }
         private void btnCapture_Click(object sender, RoutedEventArgs e)
         {
-
             try
             {
                 StudiedClass studiedClass = new StudiedClass(cmbModules.SelectedItem.ToString(), int.Parse(txtHours.Text));
-                studiedClass.UpdateRemainingHours(dashboardClass);
+                studiedClass.UpdateRemainingHours(dashboardClass, student);
             }
 
             catch (Exception)
