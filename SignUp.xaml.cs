@@ -116,7 +116,7 @@ namespace Time_Management_App
         {
             switch (name)
             {
-                case "StudentID":
+                case "StudentId":
                     txtStudentNumber.Background = System.Windows.Media.Brushes.Red;
                     txtStudentNumber.ToolTip = error;
                     break;

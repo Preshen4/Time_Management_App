@@ -10,19 +10,29 @@ namespace Time_Management_App.Abstract
     {
         public void LogedIn()
         {
-            // https://stackoverflow.com/questions/47133506/how-to-hide-show-buttons-in-wpf-pages Author: Mustaga Demir
+            // Code Attribution 
+            // Link: https://stackoverflow.com/questions/47133506/how-to-hide-show-buttons-in-wpf-pages
+            // Author: Mustaga Demir
+
+            // Start
             MainWindow wnd = (MainWindow)Application.Current.MainWindow;
             wnd.btnCapture.Visibility = Visibility.Visible;
             wnd.btnDashboard.Visibility = Visibility.Visible;
             wnd.btnStudy.Visibility = Visibility.Visible;
             wnd.btnSignUp.Visibility = Visibility.Collapsed;
             wnd.Shell.Content = new Dashboard();
+            // End
         }
 
-        // https://www.c-sharpcorner.com/article/hashing-passwords-in-net-core-with-tips/
+        // 
         // Hashes the password
         public string HashPassword(string password)
         {
+            // Code Attribution 
+            // Link: https://www.c-sharpcorner.com/article/hashing-passwords-in-net-core-with-tips/
+            // Author : Afzaal Ahmad Zeeshan
+
+            // Start
             try
             {
                 using (var sha256 = SHA256.Create())
@@ -38,6 +48,7 @@ namespace Time_Management_App.Abstract
                 MessageBox.Show("An error occurred", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return "";
             }
+            // End
         }
 
         // Checks if the student exists in the database

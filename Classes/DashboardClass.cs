@@ -65,7 +65,13 @@ namespace Time_Management_App.Classes
             }
         }
 
-        // https://www.geeksforgeeks.org/c-sharp-anonymous-types/ 
+
+        // Code Attribution 
+        // Link: https://www.geeksforgeeks.org/c-sharp-anonymous-types/ 
+        // Author : Ankita_Saini 
+        // Code : dynamic          
+        // Code Attribution 
+
         // Method to return the modules of the user
         public dynamic? GetModules()
         {

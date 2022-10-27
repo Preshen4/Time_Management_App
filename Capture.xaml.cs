@@ -125,11 +125,11 @@ namespace Time_Management_App
 
             switch (propertyName)
             {
-                case "ModuleCode":
+                case "Code":
                     txtCode.Background = System.Windows.Media.Brushes.Red;
                     txtCode.ToolTip = errorMessage;
                     break;
-                case "ModuleName":
+                case "Name":
                     txtName.Background = System.Windows.Media.Brushes.Red;
                     txtName.ToolTip = errorMessage;
                     break;
