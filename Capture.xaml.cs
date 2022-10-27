@@ -1,63 +1,147 @@
-﻿using ModulesCal;
-using System;
+﻿using FluentValidation.Results;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using Time_Management_App.Classes;
+using Time_Management_App.Interfaces;
+using Time_Management_App.Validators;
+using TimeManagementLib.Models;
 
 namespace Time_Management_App
 {
     /// <summary>
     /// Interaction logic for Capture.xaml
     /// </summary>
-    public partial class Capture : Page
+
+    public partial class Capture : Page, IErrorDisaplaying
     {
         public Capture()
         {
             InitializeComponent();
         }
 
+        [System.Obsolete]
         private void btnCapture_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            // Constructors
-            DashboardClass dashboardClass = DashboardClass.Instant;
-            Student student = Student.Instant;
-            SelfStudy selfStudy = new SelfStudy();
-            Modules modules = new Modules();
+            ClearErrors();
 
-            try
+            // Checks if the txtCredits and txtHours are empty
+            if (txtCredits.Text == "")
             {
-                // Gets the data from the user
-                string code = txtCode.Text;
-                string name = txtName.Text;
-                int hoursPerWeek = int.Parse(txtHours.Text);
-                int credits = int.Parse(txtCredits.Text);
-                modules.Code = code;
-                modules.Name = name;
-                modules.HoursPerWeek = hoursPerWeek;
-                modules.Credits = credits;
-                modules.SelfStudyHours = selfStudy.CalSelfStudyHours(credits, hoursPerWeek, student.NumOfWeeks);
-                // Adds the capture class to the modules list
-                dashboardClass.setModules(modules);
+                DisplayErrors("Credits", "Please enter a value for credits");
+                return;
             }
-            catch (Exception)
+            else if (txtHours.Text == "")
             {
-                MessageBox.Show("Please enter your module details!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                DisplayErrors("Hours", "Please enter a value for hours");
+                return;
             }
-            finally
+
+            // Creates the module object
+            Module module = new Module
             {
-                // Clears the textboxes so that new modules can be added
-                txtCode.Clear();
-                txtName.Clear();
-                txtHours.Clear();
-                txtCredits.Clear();
+                Code = txtCode.Text,
+                Name = txtName.Text,
+                Credits = int.Parse(txtCredits.Text),
+                HoursPerWeek = int.Parse(txtHours.Text)
+            };
+
+            // Checks if the user input is valid
+            StudentModuleValidator validation = new StudentModuleValidator();
+            var validationResult = validation.Validate(module);
+
+            // If the input is valid
+            if (validationResult.IsValid)
+            {
+                CaptureClass captureClass = new CaptureClass();
+
+                // Checks if the module already exists
+                if (captureClass.CheckIfCodeExists(module.Code))
+                {
+                    new Thread(() => captureClass.AddOldModule(module)).Start();
+                    Clears();
+                    ClearErrors();
+                    return;
+                }
+                // Checks if the module is linked to the student
+                else if (captureClass.CheckIfStudentHasCode(module.Code))
+                {
+                    MessageBox.Show("You already captured this module", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
+                }
+
+                Clears();
+
+                // Adds the new module to the user
+                new Thread(() => captureClass.AddNewModule(module)).Start();
             }
+            else
+            {
+                // Displays the errors of the user inputs
+                foreach (ValidationFailure failure in validationResult.Errors)
+                {
+                    DisplayErrors(failure.PropertyName, failure.ErrorMessage);
+                }
+            }
+
         }
         private void NumOnly(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
             // Only allows the user to enter numbers
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        // Clears the textboxes so that new modules can be added
+        public void Clears()
+        {
+            txtCode.Clear();
+            txtName.Clear();
+            txtHours.Clear();
+            txtCredits.Clear();
+        }
+
+        // Clears any previous errors from the form
+        public void ClearErrors()
+        {
+            txtCode.Background = System.Windows.Media.Brushes.White;
+            txtCode.ToolTip = "Enter your Module Code";
+
+            txtName.Background = System.Windows.Media.Brushes.White;
+            txtName.ToolTip = "Enter your Module Name";
+
+            txtCredits.Background = System.Windows.Media.Brushes.White;
+            txtCredits.ToolTip = "Enter your Module Credit Score";
+
+            txtHours.Background = System.Windows.Media.Brushes.White;
+            txtHours.ToolTip = "Enter your Module Hours Per Week";
+        }
+
+        // Displays the errors
+        // Github copilot supplied the code :  System.Windows.Media.Brushes.Red
+        public void DisplayErrors(string propertyName, string errorMessage)
+        {
+
+            switch (propertyName)
+            {
+                case "ModuleCode":
+                    txtCode.Background = System.Windows.Media.Brushes.Red;
+                    txtCode.ToolTip = errorMessage;
+                    break;
+                case "ModuleName":
+                    txtName.Background = System.Windows.Media.Brushes.Red;
+                    txtName.ToolTip = errorMessage;
+                    break;
+                case "Credits":
+                    txtCredits.Background = System.Windows.Media.Brushes.Red;
+                    txtCredits.ToolTip = errorMessage;
+                    break;
+                case "Hours":
+                    txtHours.Background = System.Windows.Media.Brushes.Red;
+                    txtHours.ToolTip = errorMessage;
+                    break;
+            }
         }
     }
 }

@@ -23,8 +23,38 @@
             </Grid.RowDefinitions>
 
             <!--Page Title-->
-            <TextBlock Text="Modules" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 30 0 0"
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Modules" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 30 0 0"
                            HorizontalAlignment="Left" Foreground="#121518"/>
+
+                <Button x:Name="btnDelete" Style="{StaticResource menuButton}" Width="110" 
+                        VerticalAlignment="Bottom" HorizontalAlignment="Left" DockPanel.Dock="Bottom"
+                        Margin="180 35 0 20"  Click="btnDelete_Click" ToolTip="Select row before deleting">
+                    <StackPanel Orientation="Horizontal">
+                        <Icon:PackIconMaterial Kind="Delete" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Delete"/>
+                    </StackPanel>
+                </Button>
+
+                <Button x:Name="btnMostHours" Style="{StaticResource menuButton}" Width="110" 
+                        VerticalAlignment="Bottom" HorizontalAlignment="Left" DockPanel.Dock="Bottom"
+                        Margin="18 35 0 20"  Click="btnMostHours_Click" ToolTip="Use to view your module with the most amount of hours to study">
+                    <StackPanel Orientation="Horizontal">
+                        <Icon:PackIconMaterial Kind="ClockTimeTwelve" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Hours"/>
+                    </StackPanel>
+                </Button>
+
+                <Button x:Name="btnMostCredits" Style="{StaticResource menuButton}" Width="110" 
+                        VerticalAlignment="Bottom" HorizontalAlignment="Left" DockPanel.Dock="Bottom"
+                        Margin="18 35 0 20"  Click="btnMostCredits_Click" ToolTip="Use to view your module with the most amount of credits">
+                    <StackPanel Orientation="Horizontal">
+                        <Icon:PackIconMaterial Kind="Abacus" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Credits"/>
+                    </StackPanel>
+                </Button>
+
+            </StackPanel>
 
             <Separator Height="1" Grid.Row="3" Background="#dae2ea" Margin="0 -1 0 10"/>
 
@@ -33,24 +63,12 @@
                       Name="modulesDataGrid" 
                       VerticalAlignment="Top"
                       Grid.Row="5"
-                      Width="1300"
-                      ColumnWidth="215.3"
+                      Width="1000"
+                      ColumnWidth="*"
                       MinRowHeight="25"
                       FontSize="16"
                       IsReadOnly="True"/>
             
-            <!--Search Textbox--><!--
-            <Grid Width="300" HorizontalAlignment="Left" Grid.Column="1" VerticalAlignment="Top">
-                <TextBlock x:Name="txtbSearch" Margin="20 0" VerticalAlignment="Center" Foreground="#b0b9c6" IsHitTestVisible="False"
-                           Panel.ZIndex="1" Text="Search Code Here ..."
-                           Visibility="Hidden"/>
-
-                <TextBox x:Name="txtSearch" Style="{StaticResource txtboxSearch}"
-                         Visibility="Hidden"/>
-                <Icon:PackIconMaterial x:Name="iSearch" Kind="Magnify" Width="15" Height="15" VerticalAlignment="Center"
-                                       Margin="0 0 15 0" Foreground="#b0b9c6" HorizontalAlignment="Right"
-                                       Visibility="Hidden"/>
-            </Grid>-->
         </Grid>
     </Grid>
 </Page>

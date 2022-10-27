@@ -1,11 +1,12 @@
-﻿using ModulesCal;
-using System;
-using System.Linq;
+﻿using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Time_Management_App.Classes;
+using TimeManagementLib.Models;
 
 namespace Time_Management_App
 {
@@ -14,47 +15,55 @@ namespace Time_Management_App
     /// </summary>
     public partial class Studied : Page
     {
-        // Instants of Dashboard Class
-        private DashboardClass dashboardClass = DashboardClass.Instant;
+
         public Studied()
         {
             InitializeComponent();
-            // Adds all the module codes into the combo box
-            foreach (var item in dashboardClass.getModules())
+
+            StudiedClass studiedClass = new StudiedClass();
+            IList<StudentModule>? modules = studiedClass.GetModuleCodes();
+            if (modules != null)
             {
-                cmbModules.Items.Add(item.Code);
+                // Add each code to the combo box
+                foreach (var code in modules)
+                {
+                    cmbModules.Items.Add(code.Code);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No modules found. Please add a module", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
+
         private void btnCapture_Click(object sender, RoutedEventArgs e)
         {
-            // Constructor of the SelfStudy Class in the Class Library
-            SelfStudy selfStudy = new SelfStudy();
-            string moduleCode = "";
-            try
+            // Checks if the module code is empty
+            if (cmbModules.SelectedItem == null)
             {
-                // Gets the selected module code 
-                moduleCode = cmbModules.SelectedItem.ToString();
-                // Gets users data
-                DateTime date = DateTime.Parse(dateStudied.Text);
-                int hours = int.Parse(txtHours.Text);
-                // LINQ used to update the remaining hours in the list
-                foreach (var item in dashboardClass.getModules().Where(x => x.Code == moduleCode))
-                {
-                    item.RemainingHours = item.SelfStudyHours - hours;
-                }
-                MessageBox.Show($"Your remaining hours for {moduleCode} is now updated! You can view it on your Dashboard",
-                    "Completed", MessageBoxButton.OK, MessageBoxImage.Information);
-
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Please enter your study details!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            finally
-            {
-                txtHours.Clear();
+                MessageBox.Show("Please select a module code!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
 
+            // Ask the user to confirm the capture
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to capture this study session?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.No)
+            {
+                return;
+            }
+
+            string moduleCode = cmbModules.SelectedItem.ToString()!;
+            DateTime date = DateTime.Parse(dateStudied.Text);
+            int hours = int.Parse(txtHours.Text);
+
+            StudiedClass studiedClass = new StudiedClass();
+            new Thread(() => studiedClass.Study(moduleCode!, hours)).Start();
+
+            MessageBox.Show($"Your remaining hours for {moduleCode} is now updated! You can view it on your Dashboard",
+                "Completed", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            txtHours.Clear();
         }
 
         private void txtHours_PreviewTextInput(object sender, TextCompositionEventArgs e)

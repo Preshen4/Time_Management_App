@@ -6,7 +6,7 @@
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:local="clr-namespace:Time_Management_App"
         mc:Ignorable="d"
-        Height="720" Width="1600" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        Height="720" Width="1300" WindowStartupLocation="CenterScreen" WindowStyle="None"
         AllowsTransparency="True" Background="Transparent">
     
     <Window.Resources>
@@ -51,21 +51,21 @@
 
                         <!--Menu Buttons-->
                         <StackPanel DockPanel.Dock="Top">
-                            <Button x:Name="btnDashboard" Style="{StaticResource menuButton}" Click="btnDashboard_Click">
+                            <Button x:Name="btnDashboard" Style="{StaticResource menuButton}" Click="btnDashboard_Click" Visibility="Hidden">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Dashboard"/>
                                 </StackPanel>
                             </Button>
 
-                            <Button x:Name="btnCapture" Style="{StaticResource menuButton}" Click="btnCapture_Click">
+                            <Button x:Name="btnCapture" Style="{StaticResource menuButton}" Click="btnCapture_Click" Visibility="Hidden">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="AccountEdit" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Capture"/>
                                 </StackPanel>
                             </Button>
 
-                            <Button x:Name="btnStudy" Style="{StaticResource menuButton}" Click="btnStudy_Click">
+                            <Button x:Name="btnStudy" Style="{StaticResource menuButton}" Click="btnStudy_Click" Visibility="Hidden">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="Book" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Studied"/>
@@ -74,12 +74,21 @@
 
                         </StackPanel>
 
-                        <Button x:Name="btnExit" Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20" Click="btnExit_Click">
-                            <StackPanel Orientation="Horizontal">
-                                <Icon:PackIconMaterial Kind="Logout" Style="{StaticResource menuButtonIcon}"/>
-                                <TextBlock Text="Exit"/>
-                            </StackPanel>
-                        </Button>
+                        <StackPanel VerticalAlignment="Bottom">
+                            <Button x:Name="btnSignUp" Style="{StaticResource menuButton}" Click="btnSignUp_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock x:Name="txtSignUp" Text="SignUp"/>
+                                </StackPanel>
+                            </Button>
+
+                            <Button x:Name="btnExit" Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20" Click="btnExit_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="Logout" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Exit"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
                     </DockPanel>
                 </Border>
             </Grid>

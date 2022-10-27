@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 
 namespace Time_Management_App
 {
@@ -11,6 +10,7 @@ namespace Time_Management_App
         public MainWindow()
         {
             InitializeComponent();
+            Shell.Content = new Login();
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
@@ -22,7 +22,6 @@ namespace Time_Management_App
         private void btnDashboard_Click(object sender, RoutedEventArgs e)
         {
             Shell.Content = new Dashboard();
-            GC.Collect();
         }
 
         private void btnCapture_Click(object sender, RoutedEventArgs e)
@@ -33,8 +32,20 @@ namespace Time_Management_App
         private void btnStudy_Click(object sender, RoutedEventArgs e)
         {
             Shell.Content = new Studied();
-            GC.Collect();
         }
 
+        private void btnSignUp_Click(object sender, RoutedEventArgs e)
+        {
+            if (Shell.Content.ToString()!.Equals("Time_Management_App.Login"))
+            {
+                Shell.Content = new SignUp();
+                txtSignUp.Text = "Login";
+            }
+            else
+            {
+                Shell.Content = new Login();
+                txtSignUp.Text = "SignUp";
+            }
+        }
     }
 }
