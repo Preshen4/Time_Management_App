@@ -94,7 +94,7 @@ namespace Time_Management_App
         }
 
         // Clears the textboxes so that new modules can be added
-        public void Clears()
+        private void Clears()
         {
             txtCode.Clear();
             txtName.Clear();

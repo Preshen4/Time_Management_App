@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Windows;
+using TimeManagementLib.Models;
 
 namespace Time_Management_App
 {
@@ -31,6 +33,8 @@ namespace Time_Management_App
         public MainWindow()
         {
             InitializeComponent();
+            TimeManagementAppContext context = new TimeManagementAppContext();
+            context.Students.Load();
             Shell.Content = new Login();
         }
 

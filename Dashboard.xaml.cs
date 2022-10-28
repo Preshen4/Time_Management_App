@@ -15,7 +15,6 @@ namespace Time_Management_App
         public Dashboard()
         {
             InitializeComponent();
-
             // Displays the relevant data on the dashboard
             modulesDataGrid.ItemsSource = dashboardClass.GetModules();
         }
