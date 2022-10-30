@@ -72,7 +72,7 @@ namespace Time_Management_App
                 }
 
                 Clears();
-
+                ClearErrors();
                 // Adds the new module to the user
                 new Thread(() => captureClass.AddNewModule(module)).Start();
             }

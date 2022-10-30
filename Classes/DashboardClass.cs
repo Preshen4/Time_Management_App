@@ -92,5 +92,60 @@ namespace Time_Management_App.Classes
                 return null;
             }
         }
+
+
+        // Code Attribution
+        // Link: https://www.c-sharpcorner.com/UploadFile/87b416/export-data-from-datagrid-to-excel-sheet/
+        // Author: Kailash Chandra Behera 
+        // Use: Referencing Microsoft.Office.Interop.Excel
+
+        // Method to export datagrid to excel
+        public void ExportToExcel()
+        {
+            // Code Attribution
+            // Author: Github Copilot 
+            // Start
+            try
+            {
+                TimeManagementAppContext context = new TimeManagementAppContext();
+                // Gets the modules for the current student
+                var modules = context.StudentModules.
+                    Where(x => x.StudentId == ConfigurationManager.AppSettings["StudentName"]).
+                    Select(x => new { x.Code, x.CodeNavigation.Name, x.CodeNavigation.Credits, x.SelfStudyHours, x.RemainingHours, x.Week }).
+                    ToList();
+
+                // Creates a new excel workbook
+                Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+                excel.Visible = true;
+                Microsoft.Office.Interop.Excel.Workbook wb = excel.Workbooks.Add(Microsoft.Office.Interop.Excel.XlWBATemplate.xlWBATWorksheet);
+                Microsoft.Office.Interop.Excel.Worksheet ws = (Microsoft.Office.Interop.Excel.Worksheet)excel.ActiveSheet;
+                ws.Name = "Modules";
+
+                // Adds the headers to the excel sheet
+                ws.Cells[1, 1] = "Module Code";
+                ws.Cells[1, 2] = "Module Name";
+                ws.Cells[1, 3] = "Module Credits";
+                ws.Cells[1, 4] = "Self Study Hours";
+                ws.Cells[1, 5] = "Remaining Hours";
+                ws.Cells[1, 6] = "Week";
+
+                // Adds the data to the excel sheet
+                for (int i = 0; i < modules.Count; i++)
+                {
+                    ws.Cells[i + 2, 1] = modules[i].Code;
+                    ws.Cells[i + 2, 2] = modules[i].Name;
+                    ws.Cells[i + 2, 3] = modules[i].Credits;
+                    ws.Cells[i + 2, 4] = modules[i].SelfStudyHours;
+                    ws.Cells[i + 2, 5] = modules[i].RemainingHours;
+                    ws.Cells[i + 2, 6] = modules[i].Week;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("An error occurred", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            // End
+        }
+
     }
 }

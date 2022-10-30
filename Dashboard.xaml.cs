@@ -66,5 +66,12 @@ namespace Time_Management_App
             }
             MessageBox.Show("Module not deleted", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
+
+        private void btnExport_Click(object sender, RoutedEventArgs e)
+        {
+            new Thread(() => dashboardClass.ExportToExcel()).Start();
+        }
     }
+
 }
+

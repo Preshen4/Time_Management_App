@@ -37,7 +37,6 @@ namespace Time_Management_App
             if (validationResult.IsValid)
             {
                 LoginClass loginClass = new LoginClass();
-                TimeManagementAppContext context = new TimeManagementAppContext();
 
                 // Check if the student exists
                 if (loginClass.StudentExists(studentLogin.StudentId) && loginClass.PasswordMatches(studentLogin.StudentId, studentLogin.Password))

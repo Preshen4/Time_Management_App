@@ -24,7 +24,6 @@ namespace Time_Management_App.Abstract
             // End
         }
 
-        // 
         // Hashes the password
         public string HashPassword(string password)
         {
