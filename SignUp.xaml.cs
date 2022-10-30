@@ -71,11 +71,10 @@ namespace Time_Management_App
                     signUpClass.LogedIn();
                     return;
                 }
-                else
-                {
-                    MessageBox.Show("Account is already created. Please login", "Information", MessageBoxButton.OK, MessageBoxImage.Error);
-                    Clears();
-                }
+
+                MessageBox.Show("Account is already created. Please login", "Information", MessageBoxButton.OK, MessageBoxImage.Error);
+                Clears();
+
             }
             else
             {

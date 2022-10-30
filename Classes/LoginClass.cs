@@ -22,10 +22,8 @@ namespace Time_Management_App.Classes
                     LogedIn();
                     return true;
                 }
-                else
-                {
-                    return false;
-                }
+                return false;
+
             }
             catch (Exception)
             {
