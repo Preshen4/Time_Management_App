@@ -1,6 +1,5 @@
 ﻿using FluentValidation.Results;
 using System;
-using System.Configuration;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows;
@@ -63,9 +62,6 @@ namespace Time_Management_App
             // If the details are valid
             if (validationResult.IsValid)
             {
-                TimeManagementAppContext context = new TimeManagementAppContext();
-                ConfigurationManager.AppSettings["StudentName"] = studentSignUp.StudentId;
-
                 // If the student is not created
                 if (!signUpClass.StudentExists(studentSignUp.StudentId))
                 {

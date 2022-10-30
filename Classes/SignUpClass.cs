@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Windows;
 using Time_Management_App.Abstract;
 using TimeManagementLib.Models;
@@ -21,6 +22,7 @@ namespace Time_Management_App.Classes
             try
             {
                 TimeManagementAppContext context = new TimeManagementAppContext();
+                ConfigurationManager.AppSettings["StudentName"] = student.StudentId;
                 student.Password = HashPassword(student.Password!);
                 // Add the student to the database
                 context.Students.Add(student);
