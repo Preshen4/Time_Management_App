@@ -122,7 +122,6 @@ namespace Time_Management_App
         // Github copilot supplied the code :  System.Windows.Media.Brushes.Red
         public void DisplayErrors(string propertyName, string errorMessage)
         {
-
             switch (propertyName)
             {
                 case "Code":

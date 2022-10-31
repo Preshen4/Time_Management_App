@@ -15,12 +15,14 @@ namespace Time_Management_App.Classes
             {
                 StudentModule studentModule = CreateStudentModule(module);
                 TimeManagementAppContext context = new TimeManagementAppContext();
+                using (context)
+                {
+                    context.Modules.Add(module);
+                    context.SaveChanges();
 
-                context.Modules.Add(module);
-                context.SaveChanges();
-
-                context.StudentModules.Add(studentModule);
-                context.SaveChanges();
+                    context.StudentModules.Add(studentModule);
+                    context.SaveChanges();
+                }
             }
             catch (Exception)
             {
