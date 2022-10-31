@@ -43,7 +43,7 @@
 
   <ItemGroup>
     <Reference Include="TimeManagementLib">
-      <HintPath>..\..\Libraries\TimeManagementLib\bin\Debug\net6.0\TimeManagementLib.dll</HintPath>
+      <HintPath>dlls\TimeManagementLib.dll</HintPath>
     </Reference>
   </ItemGroup>
 
