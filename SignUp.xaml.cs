@@ -68,7 +68,8 @@ namespace Time_Management_App
                     new Thread(() => signUpClass.AddUser(studentSignUp)).Start();
 
                     // Navigate to the main page
-                    signUpClass.LogedIn();
+                    LoginUser loginUser = new LoginUser();
+                    loginUser.LogedIn();
                     return;
                 }
 

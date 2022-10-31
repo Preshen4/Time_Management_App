@@ -64,6 +64,7 @@ namespace Time_Management_App
                 "Completed", MessageBoxButton.OK, MessageBoxImage.Information);
 
             txtHours.Clear();
+            dateStudied.ClearValue(DatePicker.SelectedDateProperty);
         }
 
         private void txtHours_PreviewTextInput(object sender, TextCompositionEventArgs e)

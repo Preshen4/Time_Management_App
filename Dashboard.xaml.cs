@@ -32,7 +32,7 @@ namespace Time_Management_App
             }
             catch (Exception)
             {
-                MessageBox.Show("Please select a module to delete", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Please select a module to delet1e", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
         }

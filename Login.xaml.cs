@@ -41,8 +41,8 @@ namespace Time_Management_App
                 // Check if the student exists
                 if (loginClass.StudentExists(studentLogin.StudentId) && loginClass.PasswordMatches(studentLogin.StudentId, studentLogin.Password))
                 {
-                    MessageBox.Show($"Welcome back {studentLogin.Name} {studentLogin.Surname}", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-                    loginClass.LogedIn();
+                    LoginUser loginUser = new LoginUser();
+                    loginUser.LogedIn();
                 }
                 else
                 {

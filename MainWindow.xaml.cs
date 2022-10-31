@@ -28,6 +28,11 @@ namespace Time_Management_App
         // Author : Rijwan Ansari
         // Link : https://www.c-sharpcorner.com/article/solution-non-nullable-property-must-contain-a-non-null-value-in-net-6/
         // This is used throughout the whole application
+        // 5)
+        // Multi threading
+        // Author : JaredPar
+        // Link : https://stackoverflow.com/questions/1195896/threadstart-with-parameters
+        // This is used throughout the whole application. It is used so that the application doesn't stop while doing a task in the background.
 
 
         public MainWindow()
