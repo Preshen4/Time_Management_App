@@ -15,7 +15,6 @@ namespace Time_Management_App
     /// </summary>
     public partial class Studied : Page
     {
-
         public Studied()
         {
             InitializeComponent();

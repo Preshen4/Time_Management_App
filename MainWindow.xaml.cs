@@ -11,29 +11,24 @@ namespace Time_Management_App
     {
         // Code Attribution 
         // 1) 
-        // Use of the App.config file
-        // Author : Cale 
-        // Used to store values that are used throughout the application
-        // 2) 
         // EF Core - Database First Migrations
         // Author : Cale
         // Showed the migration step and the basic of how to use it
-        // 3) 
+        // 2) 
         // Fluent Validation - Validation Rules 
         // Author : Time Corey
         // Link : https://youtu.be/Zh1ccvTFzs8
         // Classes stored in the Validation folder
-        // 4)
+        // 3)
         // The use of ! and ? in removing null warnings
         // Author : Rijwan Ansari
         // Link : https://www.c-sharpcorner.com/article/solution-non-nullable-property-must-contain-a-non-null-value-in-net-6/
         // This is used throughout the whole application
-        // 5)
+        // 4)
         // Multi threading
         // Author : JaredPar
         // Link : https://stackoverflow.com/questions/1195896/threadstart-with-parameters
         // This is used throughout the whole application. It is used so that the application doesn't stop while doing a task in the background.
-
 
         public MainWindow()
         {
