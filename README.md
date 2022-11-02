@@ -3,13 +3,15 @@ Title: POE Part2 ST10083954
 Version: 2.0.0
 
 Table of Contents: 
- A - How I Implented Feedback 
- B - Description
- C - How to intall the project
- D - How to use the project
- E - Credits
- F - Challenges
- G - What I would like to Add
+ A - How I Implented Feedback. 
+ B - Description.
+ C - How to intall the project.
+ D - How to use the project.
+ E - Credits.
+ F - Challenges.
+ G - What I would like to Add.
+ H - UML.
+ I - Change Log.
 
 A) How I Implented Feedback: 
 
@@ -88,3 +90,21 @@ G) What I would like to add:
 2) Add animations
 3) Add an API
 4) Add more style to the combo box and data grid
+
+H) UMl: 
+
+![UML Part 2 drawio (1)](https://user-images.githubusercontent.com/63053721/199377761-d86e9da9-1dbc-4cb2-be01-d537440f31a0.png)
+
+I) Change Log: 
+
+1) Moved the classes folder to the library.
+2) Added an interface and abstract class.
+3) Used EF core.
+4) Added a login and signup page for the user thats part of the shell and not a new window.
+5) Removed button that takes the user to the varsity college website.
+6) Used multithreading.
+7) Moved more logic from the xaml.cs class the the .cs classes.
+8) Added error handling.
+9) Used a singleton class.
+10) Removed old login page.
+
